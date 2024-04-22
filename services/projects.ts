@@ -9,7 +9,7 @@ export const getProjects = async () => {
     body: JSON.stringify({
       query: `
         query baseDanyaQL {
-          values: projects {
+          projects(stage: PUBLISHED) {
             id
             slug
             title
@@ -22,21 +22,24 @@ export const getProjects = async () => {
         }
       `,
     }),
+    headers: {
+      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
+    },
   });
 
   const json = await result.json();
   const { data } = json;
 
-  console.log({ dataaaaaaaaaaaa: data });
-  return data.values as Project[];
+  return data.projects as Project[];
 };
 
-export const getProject = async (id: string) => {
+export const getProject = async (slug: string) => {
   const result = await fetch(BASE_URL, {
+    method: "POST",
     body: JSON.stringify({
       query: `
-        query baseDanyaByIdQL($id: ID!) {
-          values: project(where: {id: $id}, stage: PUBLISHED) {
+        query baseDanyaByIdQL($slug: String!) {
+          project(where: {slug: $slug}, stage: PUBLISHED) {
             id
             slug
             title
@@ -49,8 +52,16 @@ export const getProject = async (id: string) => {
         }
       `,
       variables: {
-        id,
+        slug,
       },
     }),
+    headers: {
+      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
+    },
   });
+
+  const json = await result.json();
+  const { data } = json;
+
+  return data.project as Project;
 };
