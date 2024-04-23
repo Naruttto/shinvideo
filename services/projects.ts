@@ -64,6 +64,7 @@ export const getProject = async (slug: string) => {
     headers: {
       Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
     },
+    cache: "no-cache"
   });
 
   const json = await result.json();
