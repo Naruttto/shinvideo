@@ -8,3 +8,5 @@ export type Project = {
     html: string;
   };
 };
+
+export type Projects = (Project & {image: {url: string, blurUrl: string}})[]

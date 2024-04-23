@@ -5,9 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Даниил Шинкаренко",
-  description:
-    "Даниил Шинкаренко - портфолио. Создаю видео. Instagram: @shin_videography",
+  title: "Jamal",
+  description: "Jamal - jamal",
 };
 
 export default function RootLayout({

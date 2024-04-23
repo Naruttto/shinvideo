@@ -1,4 +1,4 @@
-import { Project } from "@/types/services";
+import { Project, Projects } from "@/types/services";
 
 const BASE_URL =
   "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clv50l5a80a4k07w7lt48qlio/master";
@@ -18,6 +18,12 @@ export const getProjects = async () => {
             description {
               html
             }
+            image {
+              blurUrl: url(
+                transformation: {image: {quality: {value: 1}, resize: {height: 300, width: 300}}}
+              )
+              url
+            }
           }
         }
       `,
@@ -30,7 +36,7 @@ export const getProjects = async () => {
   const json = await result.json();
   const { data } = json;
 
-  return data.projects as Project[];
+  return data.projects as Projects;
 };
 
 export const getProject = async (slug: string) => {
