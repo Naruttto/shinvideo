@@ -1,4 +1,4 @@
-import { Projects } from "@/components/Projects";
+import Categories from "@/components/Categories";
 import { ProjectsSkeleton } from "@/components/Skeleton";
 import { Suspense } from "react";
 
@@ -29,8 +29,8 @@ export default function Home() {
           cupiditate sunt in?
         </p>
 
-        <Suspense fallback={<ProjectsSkeleton />}>
-          <Projects />
+        <Suspense fallback={<ProjectsSkeleton projectCount={3} />}>
+          <Categories />
         </Suspense>
 
         <div className="mt-12 text-4xl font-bold mb-4">Еще секции...</div>

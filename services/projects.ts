@@ -90,6 +90,7 @@ export const getProjectsByTag = async (tagSlugName: string) => {
         query getProjectsByTag($tagSlugName: String!) {
           tag(where: {tagSlugName: $tagSlugName}, stage: PUBLISHED) {
             tagName
+            description
             projects {
               slug
               title
@@ -118,7 +119,37 @@ export const getProjectsByTag = async (tagSlugName: string) => {
 
   const json = await result.json();
   const { data } = json;
-  console.log(data);
 
   return data.tag as Tag & { projects: Projects };
+};
+
+export const getTags = async () => {
+  const result = await fetch(BASE_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      query: `
+        query getTags {
+          tags {
+            tagName
+            tagSlugName
+            description
+            image {
+                blurUrl: url(
+                  transformation: {image: {quality: {value: 1}, resize: {height: 300, width: 300}}}
+                )
+                url
+              }
+          }
+        }
+      `,
+    }),
+    headers: {
+      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
+    },
+  });
+
+  const json = await result.json();
+  const { data } = json;
+
+  return data.tags as Tag[];
 };

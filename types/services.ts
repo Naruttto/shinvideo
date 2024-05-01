@@ -1,6 +1,10 @@
+type Img = { url: string; blurUrl: string };
+
 export type Tag = {
   tagName: string;
   tagSlugName: string;
+  description: string;
+  image: Img;
 };
 
 export type Project = {
@@ -16,5 +20,5 @@ export type Project = {
 };
 
 export type Projects = (Project & {
-  image: { url: string; blurUrl: string };
+  image: Img;
 })[];
