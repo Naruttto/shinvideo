@@ -1,3 +1,8 @@
+export type Tag = {
+  tagName: string;
+  tagSlugName: string;
+};
+
 export type Project = {
   id: string;
   slug: string;
@@ -7,6 +12,9 @@ export type Project = {
   description: {
     html: string;
   };
+  tags: Tag[];
 };
 
-export type Projects = (Project & {image: {url: string, blurUrl: string}})[]
+export type Projects = (Project & {
+  image: { url: string; blurUrl: string };
+})[];

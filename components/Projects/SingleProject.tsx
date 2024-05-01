@@ -2,25 +2,28 @@ import { Projects } from "@/types/services";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Tags } from "../Tags";
 
-export const SingleProject = ({ title, slug, image }: Projects[0]) => {
+export const SingleProject = ({ title, slug, image, tags }: Projects[0]) => {
   return (
-    <div className="relative border border-slate-100 p-4 rounded-[32px] shadow-md">
-      {image && (
-        <div className="relative w-full h-64 mb-4">
+    <div className="transition hover:border-slate-200 group relative border border-slate-100 p-4 rounded-[32px] shadow-md">
+      <Link href={`/${slug}`}>
+        <div className="relative w-full h-64 mb-4 rounded-2xl overflow-hidden">
           <Image
             blurDataURL={image.blurUrl}
             src={image.url}
             alt={title}
             fill
-            className="object-cover rounded-2xl"
+            className="object-cover transition group-hover:scale-105"
           />
         </div>
-      )}
+      </Link>
 
-      <h3 className="text-3xl font-black hover:text-orange-600">
+      <h3 className="text-3xl font-black hover:text-orange-600 mb-4">
         <Link href={`/${slug}`}>{title}</Link>
       </h3>
+
+      <Tags tags={tags} />
     </div>
   );
 };

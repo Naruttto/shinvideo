@@ -9,9 +9,15 @@ const Player = ({ videoLink }: { videoLink: string }) => {
   const { isClient } = useClient();
 
   return (
-    <div className="relative w-full max-w-[800px] h-[450px] rounded-2xl overflow-hidden my-6 md:my-8">
+    <div className="relative w-full h-[300px] md:h-[650px] rounded-2xl overflow-hidden my-6 md:my-8 z-10">
       {isClient ? (
-        <ReactPlayer width="100%" height="100%" url={videoLink} />
+        <>
+          <div className="absolute top-0 left-0 w-full h-full -z-[1]">
+            <VideoSkeleton />
+          </div>
+
+          <ReactPlayer width="100%" height="100%" url={videoLink} controls />
+        </>
       ) : (
         <VideoSkeleton />
       )}
