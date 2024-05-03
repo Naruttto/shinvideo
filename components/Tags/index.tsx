@@ -12,7 +12,7 @@ export const Tags = ({ tags }: { tags: Tag[] }) => {
               <Link
                 href={`/projects/${tagSlugName}`}
                 key={tagName}
-                className="py-2 px-4 bg-black text-white font-semibold text-sm rounded-lg hover:bg-orange-500"
+                className="py-2 px-4 bg-black font-semibold text-sm rounded-sm hover:bg-primary"
               >
                 {tagName}
               </Link>

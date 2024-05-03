@@ -12,10 +12,10 @@ export const VideoSkeleton = ({
     <div
       className={`${width ? width : "w-full"} ${
         height ? height : "h-full"
-      } bg-slate-100 animate-fast-pulse flex justify-center items-center`}
+      } bg-gray-700 animate-fast-pulse flex justify-center items-center rounded-2xl`}
     >
       <svg
-        className="w-10 h-10 text-gray-600"
+        className="w-10 h-10 text-primary"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -39,20 +39,20 @@ export const ProjectsSkeleton = ({
         return (
           <div
             key={key}
-            className="transition hover:border-slate-200 group relative border border-slate-100 p-4 rounded-[32px] shadow-md"
+            className="transition group relative border border-gray-700 p-4 rounded-[32px] shadow-md"
           >
-            <div className="relative w-full h-64 mb-4 rounded-2xl bg-slate-100 animate-fast-pulse flex justify-center items-center">
+            <div className="relative w-full h-64 mb-4 rounded-2xl bg-gray-700 animate-fast-pulse flex justify-center items-center">
               <BsCardImage className="text-5xl text-slate-400" />
             </div>
 
-            <div className="h-9 w-[400px] max-w-full rounded-md bg-slate-100 animate-fast-pulse mb-4"></div>
+            <div className="h-9 w-[400px] max-w-full rounded-md bg-gray-700 animate-fast-pulse mb-4"></div>
 
             <div className="flex flex-wrap gap-2">
               {Array.from(Array(3)).map((tagKey) => {
                 return (
                   <span
                     key={tagKey}
-                    className="h-7 w-24 bg-slate-100 text-white font-semibold text-sm rounded-lg animate-fast-pulse"
+                    className="h-7 w-24 bg-gray-700 text-white font-semibold text-sm rounded-lg animate-fast-pulse"
                   ></span>
                 );
               })}
@@ -67,17 +67,17 @@ export const ProjectsSkeleton = ({
 export const ProjectSkeleton = () => {
   return (
     <div className="py-24">
-      <div className="w-[500px] max-w-full h-12 bg-slate-100 animate-fast-pulse rounded-md mb-6"></div>
+      <div className="w-[500px] max-w-full h-12 bg-gray-700 animate-fast-pulse rounded-md mb-6"></div>
 
       <VideoSkeleton height="h-[450px]" />
 
       <div className="flex flex-col items-start gap-4 my-4">
-        <div className="w-full max-w-full h-6 rounded-md bg-slate-100 animate-fast-pulse"></div>
-        <div className="w-full max-w-full h-6 rounded-md bg-slate-100 animate-fast-pulse"></div>
-        <div className="w-full max-w-full h-6 rounded-md bg-slate-100 animate-fast-pulse"></div>
+        <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse"></div>
+        <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse"></div>
+        <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse"></div>
       </div>
 
-      <div className="bg-slate-100 animate-fast-pulse w-36 h-12 rounded-md"></div>
+      <div className="bg-gray-700 animate-fast-pulse w-36 h-12 rounded-md"></div>
     </div>
   );
 };

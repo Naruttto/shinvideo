@@ -10,20 +10,6 @@ export default function Home() {
           Вы не понимаете, я и есть <br /> Даня Шинкоренко
         </h1>
 
-        {/* <div className="flex gap-8">
-            <div className="relative w-60 h-auto">
-              <Image
-                src="/images/danya.jpg"
-                alt="Jamal"
-                fill
-                className="object-cover rounded-2xl"
-              />
-            </div>
-            <h1 className="text-6xl font-black mb-4">
-              Вы не понимаете, я и есть <br /> Даня Шинкоренко
-            </h1>
-          </div> */}
-
         <p className="text-xl mb-6">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
           cupiditate sunt in?

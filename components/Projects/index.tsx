@@ -1,4 +1,4 @@
-import { getProjects, getProjectsByTag } from "@/services/projects";
+import { getProjectsByTag } from "@/services/projects";
 
 import React from "react";
 import { SingleProject } from "./SingleProject";
@@ -14,12 +14,6 @@ const ProjectsGrid = ({ data }: { data: ProjectsType }) => {
   );
 };
 
-export const Projects = async () => {
-  const data = await getProjects();
-
-  return <ProjectsGrid data={data} />;
-};
-
 export const ProjectsByTag = async ({ slug }: { slug: string }) => {
   const { projects, tagName, description } = await getProjectsByTag(slug);
 
@@ -27,7 +21,7 @@ export const ProjectsByTag = async ({ slug }: { slug: string }) => {
     <>
       <div className="mb-6">
         <h1 className="text-6xl font-black mb-6">
-          <span className="bg-slate-100">#{tagName}</span>
+          <span className="bg-gray-800">#{tagName}</span>
         </h1>
 
         <p className="text-2xl">{description}</p>
