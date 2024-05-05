@@ -1,6 +1,30 @@
 import React from "react";
 import { BsCardImage } from "react-icons/bs";
 
+export const HeadingSkeleton = () => {
+  return (
+    <div className="w-[500px] max-w-full h-12 bg-gray-700 animate-fast-pulse rounded-md mb-6"></div>
+  );
+};
+
+export const TextSkeleton = () => {
+  return (
+    <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse my-4"></div>
+  );
+};
+
+export const ButtonSkeleton = () => {
+  return (
+    <div className="bg-gray-700 animate-fast-pulse w-[230px] h-[60px] rounded-md"></div>
+  );
+};
+
+export const BackButtonSkeleton = () => {
+  return (
+    <div className="animate-fast-pulse bg-gray-700 w-[80px] h-[30px] rounded-md mb-10"></div>
+  );
+};
+
 export const VideoSkeleton = ({
   width,
   height,
@@ -66,18 +90,17 @@ export const ProjectsSkeleton = ({
 
 export const ProjectSkeleton = () => {
   return (
-    <div className="py-24">
-      <div className="w-[500px] max-w-full h-12 bg-gray-700 animate-fast-pulse rounded-md mb-6"></div>
+    <>
+      <BackButtonSkeleton />
+      <HeadingSkeleton />
 
       <VideoSkeleton height="h-[450px]" />
 
-      <div className="flex flex-col items-start gap-4 my-4">
-        <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse"></div>
-        <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse"></div>
-        <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse"></div>
-      </div>
+      <TextSkeleton />
+      <TextSkeleton />
+      <TextSkeleton />
 
-      <div className="bg-gray-700 animate-fast-pulse w-36 h-12 rounded-md"></div>
-    </div>
+      <ButtonSkeleton />
+    </>
   );
 };

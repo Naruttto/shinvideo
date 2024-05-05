@@ -6,8 +6,8 @@ import Container from "@/components/Container";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Jamal",
-  description: "Jamal - jamal",
+  title: "Даня Шинкаренко",
+  description: "Даня Шинкаренко - Я снимаю видики и хуидики",
 };
 
 export default function RootLayout({

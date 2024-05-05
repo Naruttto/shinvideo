@@ -13,7 +13,7 @@ export default async function ProjectPage({
   const { description, title, videoLink, tags } = await getProject(params.slug);
 
   return (
-    <div className="py-24">
+    <>
       <Link
         className="text-xl font-bold mb-10 inline-block border-b-2 border-b-white hover:border-b-black"
         href="/"
@@ -34,6 +34,6 @@ export default async function ProjectPage({
         className="prose prose-invert prose-p:text-slate-100 lg:prose-p:my-2 lg:prose-2xl"
         dangerouslySetInnerHTML={{ __html: description.html }}
       />
-    </div>
+    </>
   );
 }
