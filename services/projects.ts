@@ -1,4 +1,4 @@
-import { Project, Projects, Tag } from "@/types/services";
+import { HomeImage, Project, Projects, Tag } from "@/types/services";
 
 const BASE_URL =
   "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clv50l5a80a4k07w7lt48qlio/master";
@@ -111,4 +111,30 @@ export const getTags = async () => {
   const { data } = json;
 
   return data.tags as Tag[];
+};
+
+export const getHomeImages = async () => {
+  const result = await fetch(BASE_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      query: `
+        query homeImages {
+          homeImages {
+            alt
+            image {
+              url
+            }
+          }
+        }
+      `,
+    }),
+    headers: {
+      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
+    },
+  });
+
+  const json = await result.json();
+  const { data } = json;
+
+  return data.homeImages as HomeImage[];
 };

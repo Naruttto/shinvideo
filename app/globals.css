@@ -10,3 +10,7 @@ body {
 p {
   @apply text-secondary;
 }
+
+.swiper-pagination-bullet-active {
+  @apply !bg-primary;
+}
