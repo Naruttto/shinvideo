@@ -1,5 +1,5 @@
 "use client";
-import { Pagination, EffectCards } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { HomeImage } from "@/types/services";
 
@@ -12,8 +12,7 @@ const Slider = ({ imagesData }: { imagesData: HomeImage[] }) => {
   return (
     <div className="rounded-md overflow-hidden">
       <Swiper
-        effect={"cards"}
-        modules={[Pagination, EffectCards]}
+        modules={[Pagination]}
         spaceBetween={50}
         slidesPerView={1}
         pagination

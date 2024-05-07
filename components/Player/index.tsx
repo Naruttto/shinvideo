@@ -19,7 +19,11 @@ const Player = ({ videoLink }: { videoLink: string }) => {
           <ReactPlayer width="100%" height="100%" url={videoLink} controls />
         </>
       ) : (
-        <VideoSkeleton />
+        <>
+          <div className="w-full h-full">
+            <VideoSkeleton />
+          </div>
+        </>
       )}
     </div>
   );

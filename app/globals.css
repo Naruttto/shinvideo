@@ -11,6 +11,6 @@ p {
   @apply text-secondary;
 }
 
-.swiper-pagination-bullet-active {
+.swiper-pagination-bullet {
   @apply !bg-primary;
 }
