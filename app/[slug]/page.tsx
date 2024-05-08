@@ -1,16 +1,42 @@
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import Player from "@/components/Player";
 
-import { getProject } from "@/services/projects";
+import { getProjectBySlug } from "@/services/projects";
 import { Tags } from "@/components/Tags";
-import { VideoSkeleton } from "@/components/Skeleton";
 
-export default async function ProjectPage({
-  params,
-}: {
+type Props = {
   params: { slug: string };
-}) {
-  const { description, title, videoLink, tags } = await getProject(params.slug);
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { title, tags, description, image } = await getProjectBySlug(
+    params.slug
+  );
+
+  return {
+    title,
+    description: description?.text,
+    keywords: tags
+      .map(({ tagName }) => {
+        return tagName;
+      })
+      .join(", "),
+    openGraph: {
+      title,
+      description: description?.text,
+      images: [image.ogImage],
+    },
+  };
+}
+
+export default async function ProjectPage({ params }: Props) {
+  const { title, description, tags, videoLink } = await getProjectBySlug(
+    params.slug
+  );
 
   return (
     <>
@@ -25,15 +51,19 @@ export default async function ProjectPage({
 
       <Player videoLink={videoLink} />
 
-      <div className="mb-6 bg-gray-700 p-6 rounded-2xl">
-        <h3 className="text-2xl font-bold mb-2">Тэги:</h3>
-        <Tags tags={tags} />
-      </div>
+      {tags && (
+        <div className="mb-6 bg-gray-700 p-6 rounded-2xl">
+          <h3 className="text-2xl font-bold mb-2">Тэги:</h3>
+          <Tags tags={tags} />
+        </div>
+      )}
 
-      <div
-        className="prose prose-invert prose-p:text-slate-100 lg:prose-p:my-2 lg:prose-2xl"
-        dangerouslySetInnerHTML={{ __html: description.html }}
-      />
+      {description?.html && (
+        <div
+          className="prose prose-invert prose-p:text-slate-100 lg:prose-p:my-2 lg:prose-2xl"
+          dangerouslySetInnerHTML={{ __html: description.html }}
+        />
+      )}
     </>
   );
 }

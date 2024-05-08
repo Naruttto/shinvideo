@@ -1,44 +1,17 @@
+import { BASE_URL } from "@/consts";
 import { HomeImage, Project, Projects, Tag } from "@/types/services";
+import { client } from "./requestClient";
+import { GetProjectBySlugDocument } from "@/generates/gql/graphql";
+import { notFound } from "next/navigation";
 
-const BASE_URL =
-  "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clv50l5a80a4k07w7lt48qlio/master";
+export const getProjectBySlug = async (slug: string) => {
+  const { project } = await client.request(GetProjectBySlugDocument, { slug });
 
-export const getProject = async (slug: string) => {
-  const result = await fetch(BASE_URL, {
-    method: "POST",
-    body: JSON.stringify({
-      query: `
-        query baseDanyaByIdQL($slug: String!) {
-          project(where: {slug: $slug}, stage: PUBLISHED) {
-            id
-            slug
-            title
-            updatedAt
-            videoLink
-            description {
-              html
-            }
-            tags {
-              tagName
-              tagSlugName
-            }
-          }
-        }
-      `,
-      variables: {
-        slug,
-      },
-    }),
-    headers: {
-      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
-    },
-    cache: "no-cache",
-  });
+  if (project) {
+    return project;
+  }
 
-  const json = await result.json();
-  const { data } = json;
-
-  return data.project as Project;
+  notFound();
 };
 
 export const getProjectsByTag = async (tagSlugName: string) => {

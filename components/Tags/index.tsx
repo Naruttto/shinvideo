@@ -1,8 +1,13 @@
+import { GetProjectBySlugQuery } from "@/generates/gql/graphql";
 import { Tag } from "@/types/services";
 import Link from "next/link";
 import React from "react";
 
-export const Tags = ({ tags }: { tags: Tag[] }) => {
+export const Tags = ({
+  tags,
+}: {
+  tags: NonNullable<GetProjectBySlugQuery["project"]>["tags"];
+}) => {
   return (
     <>
       {tags && Boolean(tags.length) && (

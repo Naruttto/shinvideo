@@ -1,0 +1,24 @@
+query getProjectBySlug($slug: String!) {
+  project(where: { slug: $slug }, stage: PUBLISHED) {
+    id
+    slug
+    title
+    updatedAt
+    videoLink
+    image {
+      ogImage: url(
+        transformation: {
+          image: { resize: { height: 300, width: 400, fit: clip } }
+        }
+      )
+    }
+    description {
+      html
+      text
+    }
+    tags {
+      tagName
+      tagSlugName
+    }
+  }
+}

@@ -72,7 +72,7 @@ export const ProjectsSkeleton = ({
             <div className="h-9 w-[400px] max-w-full rounded-md bg-gray-700 animate-fast-pulse mb-4"></div>
 
             <div className="flex flex-wrap gap-2">
-              {Array.from(Array(3)).map((tagKey) => {
+              {Array.from(Array(3).keys()).map((tagKey) => {
                 return (
                   <span
                     key={tagKey}
