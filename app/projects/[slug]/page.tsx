@@ -6,12 +6,30 @@ import {
   ProjectsSkeleton,
   TextSkeleton,
 } from "@/components/Skeleton";
+import { getProjectsByTag } from "@/services/projects";
+import { Metadata } from "next";
+import { AUTHOR_NAME } from "@/consts";
 
-export default async function ProjectsByTagPage({
-  params,
-}: {
+type Props = {
   params: { slug: string };
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { tagName, description, image } = await getProjectsByTag(params.slug);
+  const title = `${tagName} - ${AUTHOR_NAME}`;
+
+  return {
+    title,
+    description: description || "",
+    openGraph: {
+      title,
+      description: description || "",
+      images: [image.ogImage],
+    },
+  };
+}
+
+export default async function ProjectsByTagPage({ params }: Props) {
   return (
     <>
       <Link

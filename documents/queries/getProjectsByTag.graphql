@@ -2,6 +2,13 @@ query getProjectsByTag($tagSlugName: String!) {
   tag(where: { tagSlugName: $tagSlugName }, stage: PUBLISHED) {
     tagName
     description
+    image {
+      ogImage: url(
+        transformation: {
+          image: { resize: { height: 300, width: 400, fit: clip } }
+        }
+      )
+    }
     projects {
       slug
       title

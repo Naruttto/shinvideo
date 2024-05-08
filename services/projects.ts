@@ -1,7 +1,10 @@
 import { BASE_URL } from "@/consts";
 import { HomeImage, Project, Projects, Tag } from "@/types/services";
 import { client } from "./requestClient";
-import { GetProjectBySlugDocument } from "@/generates/gql/graphql";
+import {
+  GetProjectBySlugDocument,
+  GetProjectsByTagDocument,
+} from "@/generates/gql/graphql";
 import { notFound } from "next/navigation";
 
 export const getProjectBySlug = async (slug: string) => {
@@ -15,44 +18,15 @@ export const getProjectBySlug = async (slug: string) => {
 };
 
 export const getProjectsByTag = async (tagSlugName: string) => {
-  const result = await fetch(BASE_URL, {
-    method: "POST",
-    body: JSON.stringify({
-      query: `
-        query getProjectsByTag($tagSlugName: String!) {
-          tag(where: {tagSlugName: $tagSlugName}, stage: PUBLISHED) {
-            tagName
-            description
-            projects {
-              slug
-              title
-              tags {
-                tagName
-                tagSlugName
-              }
-              image {
-                blurUrl: url(
-                  transformation: {image: {quality: {value: 1}, resize: {height: 300, width: 300}}}
-                )
-                url
-              }
-            }
-          }
-        }
-      `,
-      variables: {
-        tagSlugName,
-      },
-    }),
-    headers: {
-      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
-    },
+  const { tag } = await client.request(GetProjectsByTagDocument, {
+    tagSlugName,
   });
 
-  const json = await result.json();
-  const { data } = json;
+  if (tag) {
+    return tag;
+  }
 
-  return data.tag as Tag & { projects: Projects };
+  notFound();
 };
 
 export const getTags = async () => {

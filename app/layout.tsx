@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <NextTopLoader color="#ff6e00" height={12} />
+        <NextTopLoader color="#ff6e00" height={5} />
         <Container>{children}</Container>
       </body>
     </html>

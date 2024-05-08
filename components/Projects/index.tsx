@@ -7,8 +7,8 @@ import { Projects as ProjectsType } from "@/types/services";
 const ProjectsGrid = ({ data }: { data: ProjectsType }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {data.map((item) => {
-        return <ProjectCard key={item.id} {...item} />;
+      {data.map((item, index) => {
+        return <ProjectCard key={index} {...item} />;
       })}
     </div>
   );
@@ -27,7 +27,7 @@ export const ProjectsByTag = async ({ slug }: { slug: string }) => {
         <p className="text-xl md:text-2xl">{description}</p>
       </div>
 
-      <ProjectsGrid data={projects} />
+      <ProjectsGrid data={projects as ProjectsType} />
     </>
   );
 };
