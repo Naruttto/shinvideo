@@ -15,7 +15,7 @@ export default function Home() {
 
       <div className="gap-16 mb-48 items-center lg:grid lg:grid-cols-2 py-8 lg:py-16 ">
         <div className="font-light text-gray-100 sm:text-lg dark:text-gray-200">
-          <h2 className="mb-4 text-6xl tracking-tight font-extrabold text-gray-100">
+          <h2 className="mb-4 text-4xl sm:text-6xl tracking-tight font-extrabold text-gray-100">
             ДАВАЙТЕ СОЗДАДИМ ЧТО-ТО ВМЕСТЕ!!!!
           </h2>
 

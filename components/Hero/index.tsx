@@ -12,36 +12,38 @@ const Hero = () => {
 
       <p className="text-2xl mb-6">Я снимаю видики и хуидики</p>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
         <a
           href="https://t.me/shin_videography"
           target="_blank"
-          className="bg-primary py-4 pl-8 pr-6 text-xl font-semibold rounded-sm inline-flex items-center gap-3"
+          className="bg-primary h-[50px] sm:h-[60px] pl-8 pr-6 text-xl font-semibold rounded-sm inline-flex items-center gap-3"
         >
           Написать мне <LiaTelegram className="text-2xl" />
         </a>
 
-        <a
-          href="https://www.youtube.com/@shin_videography716"
-          target="_blank"
-          className={
-            "w-[60px] h-[60px] border-2 border-primary box-border rounded-sm text-primary inline-flex justify-center items-center text-3xl" +
-            " hover:bg-primary hover:text-white transition"
-          }
-        >
-          <RiYoutubeFill />
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://www.youtube.com/@shin_videography716"
+            target="_blank"
+            className={
+              "w-[50px] h-[50px] text-2xl sm:w-[60px] sm:h-[60px] sm:text-3xl border-2 border-primary box-border rounded-sm text-primary inline-flex justify-center items-center" +
+              " hover:bg-primary hover:text-white transition"
+            }
+          >
+            <RiYoutubeFill />
+          </a>
 
-        <a
-          href="https://www.instagram.com/shin_videography/"
-          target="_blank"
-          className={
-            "w-[60px] h-[60px] border-2 border-primary box-border rounded-sm text-primary inline-flex justify-center items-center text-3xl" +
-            " hover:bg-primary hover:text-white transition"
-          }
-        >
-          <AiFillInstagram />
-        </a>
+          <a
+            href="https://www.instagram.com/shin_videography/"
+            target="_blank"
+            className={
+              "w-[50px] h-[50px] text-2xl sm:w-[60px] sm:h-[60px] sm:text-3xl border-2 border-primary box-border rounded-sm text-primary inline-flex justify-center items-center" +
+              " hover:bg-primary hover:text-white transition"
+            }
+          >
+            <AiFillInstagram />
+          </a>
+        </div>
       </div>
     </div>
   );
