@@ -3,6 +3,7 @@ import { getProjectsByTag } from "@/services/projects";
 import React from "react";
 import { ProjectCard } from "./SingleProject";
 import { Projects as ProjectsType } from "@/types/services";
+import { NoProjects } from "./NoProjects";
 
 const ProjectsGrid = ({ data }: { data: ProjectsType }) => {
   return (
@@ -17,6 +18,8 @@ const ProjectsGrid = ({ data }: { data: ProjectsType }) => {
 export const ProjectsByTag = async ({ slug }: { slug: string }) => {
   const { projects, tagName, description } = await getProjectsByTag(slug);
 
+  console.log({ PROOOOOOOOOOOOJECTS: projects });
+
   return (
     <>
       <div className="mb-6">
@@ -27,7 +30,11 @@ export const ProjectsByTag = async ({ slug }: { slug: string }) => {
         <p className="text-xl md:text-2xl">{description}</p>
       </div>
 
-      <ProjectsGrid data={projects as ProjectsType} />
+      {!Boolean(projects.length) && <NoProjects />}
+
+      {Boolean(projects.length) && (
+        <ProjectsGrid data={projects as ProjectsType} />
+      )}
     </>
   );
 };
