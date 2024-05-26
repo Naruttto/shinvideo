@@ -1,9 +1,9 @@
 import { Metadata, ResolvingMetadata } from "next";
-import Link from "next/link";
 import Player from "@/components/Player";
 
 import { getProjectBySlug } from "@/services/projects";
 import { Tags } from "@/components/Tags";
+import BackButton from "@/components/BackButton/BackButton";
 
 type Props = {
   params: { slug: string };
@@ -40,12 +40,7 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <>
-      <Link
-        className="text-xl font-bold mb-10 inline-block border-b-2 border-b-white hover:border-b-black"
-        href="/"
-      >
-        {"<"} Назад
-      </Link>
+      <BackButton />
 
       <h1 className="text-5xl font-black">{title}</h1>
 

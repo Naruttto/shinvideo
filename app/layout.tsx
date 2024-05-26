@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Даня Шинкаренко",
-  description: "Даня Шинкаренко - Я снимаю видики и хуидики",
+  description:
+    "Даня Шинкаренко - Создаю видео с 2017 года. Всегда стремлюсь к искренности и простоте визуального языка. Работаю в Ростове-на-Дону и Санкт-Петербурге",
 };
 
 export default function RootLayout({

@@ -33,7 +33,7 @@ export default async function ProjectsByTagPage({ params }: Props) {
   return (
     <>
       <Link
-        className="text-xl font-bold mb-10 inline-block border-b-2 border-b-white hover:border-b-black"
+        className="text-xl font-bold mb-10 inline-block border-b-2 border-b-white hover:border-b-black outline-none"
         href="/"
       >
         {"<"} Назад

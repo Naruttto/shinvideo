@@ -18,11 +18,9 @@ const ProjectsGrid = ({ data }: { data: ProjectsType }) => {
 export const ProjectsByTag = async ({ slug }: { slug: string }) => {
   const { projects, tagName, description } = await getProjectsByTag(slug);
 
-  console.log({ PROOOOOOOOOOOOJECTS: projects });
-
   return (
     <>
-      <div className="mb-6">
+      <div className="mb-8">
         <h1 className="text-4xl md:text-6xl font-black mb-6">
           <span className="bg-gray-800">#{tagName}</span>
         </h1>
