@@ -70,6 +70,9 @@ export const getHomeImages = async () => {
             alt
             image {
               url
+              blurUrl: url(
+                transformation: {image: {quality: {value: 1}, resize: {height: 300, width: 200}}}
+              )
             }
           }
         }

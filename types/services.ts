@@ -23,4 +23,7 @@ export type Projects = (Project & {
   image: Img;
 })[];
 
-export type HomeImage = { alt: string; image: { url: string } };
+export type HomeImage = {
+  alt: string;
+  image: { url: string; blurUrl: string };
+};

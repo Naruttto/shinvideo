@@ -23,9 +23,11 @@ const Slider = ({ imagesData }: { imagesData: HomeImage[] }) => {
               <div className="w-full h-[450px] relative">
                 <Image
                   className="object-cover rounded-md"
-                  alt={item.alt}
+                  blurDataURL={item.image.blurUrl}
                   src={item.image.url}
+                  alt={item.alt}
                   fill
+                  placeholder="blur"
                 />
               </div>
             </SwiperSlide>

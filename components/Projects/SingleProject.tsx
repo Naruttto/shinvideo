@@ -10,6 +10,7 @@ export const ProjectCard = ({ title, slug, image, tags }: Projects[0]) => {
       <Link href={`/${slug}`}>
         <div className="relative w-full h-64 mb-4 rounded-2xl overflow-hidden">
           <Image
+            placeholder="blur"
             blurDataURL={image.blurUrl}
             src={image.url}
             alt={title}
