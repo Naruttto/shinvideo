@@ -20,7 +20,7 @@ const Slider = ({ imagesData }: { imagesData: HomeImage[] }) => {
         {imagesData.map((item) => {
           return (
             <SwiperSlide key={item.image.url}>
-              <div className="w-full h-[450px] relative">
+              <div className="w-full h-[650px] relative">
                 <Image
                   className="object-cover rounded-md"
                   blurDataURL={item.image.blurUrl}
