@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/consts";
-import { HomeImage, Project, Projects, Tag } from "@/types/services";
+import { HomeImage, Tag } from "@/types/services";
 import { client } from "./requestClient";
 import {
   GetProjectBySlugDocument,
@@ -41,7 +41,7 @@ export const getTags = async () => {
             description
             image {
                 blurUrl: url(
-                  transformation: {image: {quality: {value: 1}, resize: {height: 300, width: 300}}}
+                  transformation: {image: {quality: {value: 1}, resize: {height: 30, width: 30}}}
                 )
                 url
               }
@@ -71,7 +71,7 @@ export const getHomeImages = async () => {
             image {
               url
               blurUrl: url(
-                transformation: {image: {quality: {value: 1}, resize: {height: 300, width: 200}}}
+                transformation: {image: {quality: {value: 1}, resize: {height: 30, width: 20}}}
               )
             }
           }
