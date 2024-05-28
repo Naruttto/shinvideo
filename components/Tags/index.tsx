@@ -17,7 +17,7 @@ export const Tags = ({
               <Link
                 href={`/projects/${tagSlugName}`}
                 key={tagName}
-                className="py-2 px-4 bg-black font-semibold text-sm rounded-sm hover:bg-primary"
+                className="px-2 border border-slate-50 text-slate-50 font-mono font-semibold text-sm rounded-xl hover:bg-primary"
               >
                 {tagName}
               </Link>

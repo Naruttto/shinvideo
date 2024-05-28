@@ -14,3 +14,9 @@ p {
 .swiper-pagination-bullet {
   @apply !bg-primary;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply !text-primary;
+}
+/* 640 */

@@ -7,7 +7,7 @@ import { NoProjects } from "./NoProjects";
 
 const ProjectsGrid = ({ data }: { data: ProjectsType }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-4">
       {data.map((item, index) => {
         return <ProjectCard key={index} {...item} />;
       })}
@@ -21,11 +21,11 @@ export const ProjectsByTag = async ({ slug }: { slug: string }) => {
   return (
     <>
       <div className="mb-8">
-        <h1 className="text-4xl md:text-6xl font-black mb-6">
-          <span className="bg-gray-800">#{tagName}</span>
+        <h1 className="text-2xl sm:text-4xl  font-semibold font-mono mb-6">
+          #{tagName}
         </h1>
 
-        <p className="text-xl md:text-2xl">{description}</p>
+        <p className="text-lg sm:text-xl md:text-2xl">{description}</p>
       </div>
 
       {!Boolean(projects.length) && <NoProjects />}

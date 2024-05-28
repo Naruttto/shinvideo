@@ -6,9 +6,9 @@ import { Tags } from "../Tags";
 
 export const ProjectCard = ({ title, slug, image, tags }: Projects[0]) => {
   return (
-    <div className="transition hover:border-gray-700 group relative border border-gray-800 p-4 rounded-[32px] shadow-md">
+    <div className="transition group relative">
       <Link href={`/${slug}`}>
-        <div className="relative w-full h-64 mb-4 rounded-2xl overflow-hidden">
+        <div className="relative w-full h-64 mb-4 overflow-hidden">
           <Image
             placeholder="blur"
             blurDataURL={image.blurUrl}
@@ -20,7 +20,7 @@ export const ProjectCard = ({ title, slug, image, tags }: Projects[0]) => {
         </div>
       </Link>
 
-      <h3 className="text-3xl font-black hover:text-primary mb-4 inline-block">
+      <h3 className="text-xl font-mono font-bold hover:text-primary inline-block mb-2">
         <Link href={`/${slug}`}>{title}</Link>
       </h3>
 

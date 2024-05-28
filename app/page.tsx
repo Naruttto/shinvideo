@@ -15,8 +15,9 @@ export default function Home() {
 
       <div className="gap-16 mb-48 items-center lg:grid lg:grid-cols-2 py-8 lg:py-16 ">
         <div className="font-light text-gray-100 sm:text-lg dark:text-gray-200">
-          <h2 className="mb-4 text-4xl sm:text-6xl tracking-tight font-extrabold text-gray-100">
-            ДАВАЙТЕ СОЗДАВАТЬ ВИДЕО ВМЕСТЕ
+          <h2 className="mb-4 text-3xl sm:text-5xl tracking-tight font-extrabold text-gray-100">
+            <div className="mb-1 sm:mb-2">ДАВАЙТЕ СОЗДАВАТЬ</div>
+            <div>ВИДЕО ВМЕСТЕ</div>
           </h2>
 
           <p className="mb-4">
@@ -31,6 +32,7 @@ export default function Home() {
             обпытом работы с профессиональными кино оборудованием и всегда
             совершенствуюсь.
           </p>
+
           <p className="mb-6">
             В своих работах делаю упор на атмосферу и посыл. Для меня съемка -
             это не метод монетизации, а возможность транслировать свои
