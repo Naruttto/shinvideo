@@ -3,25 +3,25 @@ import { BsCardImage } from "react-icons/bs";
 
 export const HeadingSkeleton = () => {
   return (
-    <div className="w-[500px] max-w-full h-12 bg-gray-700 animate-fast-pulse rounded-md mb-6"></div>
+    <div className="w-[250px] sm:w-[500px] max-w-full h-12 bg-gray-700 animate-fast-pulse mb-6"></div>
   );
 };
 
 export const TextSkeleton = () => {
   return (
-    <div className="w-full max-w-full h-6 rounded-md bg-gray-700 animate-fast-pulse my-4"></div>
+    <div className="w-full max-w-full h-6 bg-gray-700 animate-fast-pulse my-4"></div>
   );
 };
 
 export const ButtonSkeleton = () => {
   return (
-    <div className="bg-gray-700 animate-fast-pulse w-[230px] h-[60px] rounded-md"></div>
+    <div className="bg-gray-700 animate-fast-pulse w-[230px] h-[60px]"></div>
   );
 };
 
 export const BackButtonSkeleton = () => {
   return (
-    <div className="animate-fast-pulse bg-gray-700 w-[80px] h-[30px] rounded-md mb-10"></div>
+    <div className="animate-fast-pulse bg-gray-700 w-[80px] h-[30px] mb-10"></div>
   );
 };
 
@@ -58,25 +58,22 @@ export const ProjectsSkeleton = ({
   projectCount?: number;
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
       {Array.from(Array(projectCount).keys()).map((key) => {
         return (
-          <div
-            key={key}
-            className="transition group relative border border-gray-700 p-4 rounded-[32px] shadow-md"
-          >
-            <div className="relative w-full h-64 mb-4 rounded-2xl bg-gray-700 animate-fast-pulse flex justify-center items-center">
+          <div key={key} className="transition group relative shadow-md">
+            <div className="relative w-full h-64 mb-4  bg-gray-700 animate-fast-pulse flex justify-center items-center">
               <BsCardImage className="text-5xl text-slate-400" />
             </div>
 
-            <div className="h-9 w-[400px] max-w-full rounded-md bg-gray-700 animate-fast-pulse mb-4"></div>
+            <div className="h-9 w-[400px] max-w-full  bg-gray-700 animate-fast-pulse mb-4"></div>
 
             <div className="flex flex-wrap gap-2">
               {Array.from(Array(3).keys()).map((tagKey) => {
                 return (
                   <span
                     key={tagKey}
-                    className="h-7 w-24 bg-gray-700 text-white font-semibold text-sm rounded-lg animate-fast-pulse"
+                    className="h-7 w-24 bg-gray-700 text-white font-semibold text-sm  animate-fast-pulse"
                   ></span>
                 );
               })}

@@ -1,4 +1,5 @@
 import { Tag } from "@/types/services";
+import { shimmer } from "@/utils/shimmer";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -12,14 +13,13 @@ export const CategoriesCard = ({
   return (
     <div className="transition hover:border-gray-700 group relative shadow-md">
       <Link href={`/projects/${tagSlugName}`}>
-        <div className="relative w-full h-64 mb-4 overflow-hidden">
+        <div className="relative w-full h-64 sm:h-80 mb-4 overflow-hidden">
           <Image
-            blurDataURL={image.blurUrl}
             src={image.url}
             alt={tagName}
             fill
-            placeholder="blur"
             className="object-cover transition group-hover:scale-105"
+            placeholder={`data:image/svg+xml;base64,${shimmer(632, 320)}`}
           />
         </div>
       </Link>

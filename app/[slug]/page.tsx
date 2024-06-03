@@ -4,6 +4,7 @@ import Player from "@/components/Player";
 import { getProjectBySlug } from "@/services/projects";
 import { Tags } from "@/components/Tags";
 import BackButton from "@/components/BackButton/BackButton";
+import { ContactButtons } from "@/components/ContactButtons";
 
 type Props = {
   params: { slug: string };
@@ -47,6 +48,10 @@ export default async function ProjectPage({ params }: Props) {
       <Player videoLink={videoLink} />
 
       {tags && <Tags tags={tags} />}
+
+      <div className="flex justify-center sm:justify-start my-8">
+        <ContactButtons />
+      </div>
 
       {description?.html && (
         <div
